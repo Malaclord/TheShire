@@ -2,25 +2,29 @@
   "schemaVersion": 1,
   "id": "theshire",
   "version": "${version}",
-
   "name": "TheShire",
   "description": "",
   "authors": [],
-  "contact": {},
-
+  "contact": {
+    "repo": "https://github.com/Marci/TheShire"
+  },
   "license": "MIT",
   "icon": "assets/theshire/icon.png",
-
   "environment": "client",
-  "entrypoints": {},
-
-      "mixins": [
-        "theshire.mixins.json"
-      ],
-
+  "entrypoints": {
+    "client": [
+      "com.malaclord.theshire.client.TheShireClient"
+    ],
+    "main": [
+      "com.malaclord.theshire.TheShire"
+    ]
+  },
+  "mixins": [
+    "theshire.mixins.json"
+  ],
   "depends": {
     "fabricloader": ">=${loader_version}",
-        "fabric": "*",
+    "fabric": "*",
     "minecraft": "${minecraft_version}"
   }
 }
