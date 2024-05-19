@@ -1,5 +1,6 @@
 package com.malaclord.theshire.mixin.client;
 
+import com.llamalad7.mixinextras.injector.ModifyReturnValue;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.client.gui.screen.TitleScreen;
@@ -34,9 +35,9 @@ public class TitleScreenMixin extends Screen {
         return null;
     }
 
-    @Inject(method = "init", at = @At("TAIL"))
-    public void initInjected(CallbackInfo ci) {
-
+    @ModifyReturnValue(method = "isRealmsNotificationsGuiDisplayed", at = @At("RETURN"))
+    public boolean modifyRealmsNotificationDisplayed(boolean original) {
+        return false;
     }
 
     @ModifyArg(method = "init", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/gui/widget/PressableTextWidget;<init>(IIIILnet/minecraft/text/Text;Lnet/minecraft/client/gui/widget/ButtonWidget$PressAction;Lnet/minecraft/client/font/TextRenderer;)V"), index = 1)
