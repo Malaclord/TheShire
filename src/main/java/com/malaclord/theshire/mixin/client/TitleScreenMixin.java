@@ -53,12 +53,12 @@ public class TitleScreenMixin extends Screen {
         Tooltip tooltip = text != null ? Tooltip.of(text) : null;
 
         this.addDrawableChild(ButtonWidget.builder(Text.literal("The Shire").formatted(Formatting.BOLD), (button) ->
-                ConnectScreen.connect(this, MinecraftClient.getInstance(), ServerAddress.parse("play.shirecraft.us"),shireInfo,true))
+                ConnectScreen.connect(this, MinecraftClient.getInstance(), ServerAddress.parse("play.shirecraft.us"),shireInfo,true,null))
                 .dimensions(this.width / 2 - 100, y, 200, 32 + spacingY).tooltip(tooltip).build()).active = bl;
 
 
         this.addDrawableChild(ButtonWidget.builder(Text.literal("The Shire Survival"), (button) ->
-                ConnectScreen.connect(this, MinecraftClient.getInstance(), ServerAddress.parse("survival.shirecraft.us"),shireInfo,true))
+                ConnectScreen.connect(this, MinecraftClient.getInstance(), ServerAddress.parse("survival.shirecraft.us"),shireInfo,true, null))
                 .dimensions(this.width / 2 - 100, y + spacingY * 2 + 12, 98, 20).tooltip(tooltip).build()).active = bl;
 
         this.addDrawableChild(ButtonWidget.builder(Text.translatable("menu.singleplayer"), (button) -> {
